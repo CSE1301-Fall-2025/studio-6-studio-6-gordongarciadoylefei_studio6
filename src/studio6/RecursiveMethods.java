@@ -43,10 +43,24 @@ public class RecursiveMethods {
 	 * @param array the array to create a reverse of, not to be mutated
 	 * @return an array with the same data as the input but it reverse order
 	 */
+
+	public static int reverseHelper(int[] array, int[] reversedArray, int index) {
+		if (index<0) {
+			return 0;
+		}
+		else {
+			reversedArray[reversedArray.length -1 - index] = array[index];
+			return reverseHelper(array, reversedArray, index -1);
+		}
+	}	
+	 
 	public static int[] toReversed(int[] array) {
+		int[] reversedArray = new int[array.length];
+		reverseHelper(array, reversedArray, array.length -1);
+		return reversedArray;
 		
 			// FIXME create a helper method that can recursively reverse the given array
-			return new int[0];
+			//return new int[0];
 		
 	}
 
@@ -59,9 +73,13 @@ public class RecursiveMethods {
 	 * @return greatest common divisor of p and q
 	 */
 	public static int gcd(int p, int q) {
-		
+		if (q==0)
 			// FIXME compute the gcd of p and q using recursion
 			return 0;
+		if (p%q==0)
+			return q;
+		else 
+			return gcd(q, p%q);
 		
 	}
 

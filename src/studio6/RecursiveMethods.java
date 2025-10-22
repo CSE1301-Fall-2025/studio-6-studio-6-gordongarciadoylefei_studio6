@@ -17,7 +17,7 @@ public class RecursiveMethods {
 	    else 
 		return Math.pow(0.5,n)+geometricSum(n-1);
 		// FIXME compute the geometric sum for the first n terms recursively
-			return 0;
+			
 		
 	}
 
